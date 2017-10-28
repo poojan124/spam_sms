@@ -39,7 +39,7 @@ class preprocess(object):
 
     def collapse_terms(self,s):
         for w in word_tokenize(s):
-            if (w.find('http')!=-1) or (w.find('watch')!=-1 and len(w)>9):
+            if (w.find('http')!=-1):
                 s = s.replace(w,"_link_feature")
             if self.isEnglish(w) == False:
                 s = s.replace(w,"")

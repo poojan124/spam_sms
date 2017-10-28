@@ -5,7 +5,7 @@ import re
 from sklearn.model_selection import train_test_split
 from nltk.tokenize import word_tokenize
 from collections import Counter
-from sklearn.metrics import  accuracy_score,f1_score,confusion_matrix
+from sklearn.metrics import  accuracy_score,f1_score,confusion_matrix,matthews_corrcoef
 
 class NBC(object):
 
@@ -85,6 +85,7 @@ class NBC(object):
         print(mat)
         print("Accuracy : "+str(acc*100)+"%")
         print("F-Score : " + str(fs))
+        print("MCC : " + str(matthews_corrcoef(self.test_data['CLASS'],op)))
 
     def run(self):
         op = []
@@ -98,6 +99,7 @@ class NBC(object):
         print(mat)
         print("Accuracy : "+str(acc*100)+"%")
         print("F-Score : " + str(fs))
+        print("MCC : " + str(matthews_corrcoef(self.data['CLASS'],op)))
 
 if __name__ == "__main__":
     ob1 = prepro.preprocess(['data'],['CLASS','CONTENT'])
